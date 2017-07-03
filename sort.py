@@ -51,5 +51,30 @@ def mergesort(array):
         left = mergesort(array[:mid])
         right = mergesort(array[mid:])
         return merge(left, right)
-
     
+def countinversion(array):
+    if len(array) == 1:
+        return array, 0;
+    else:
+        mid = int(len(array)/2)
+        left, inv1 = countinversion(array[:mid])
+        right, inv2 = countinversion(array[mid:])
+        array, inv3 = mergeinversion(left, right);
+        return array, inv1+inv2+inv3
+
+def mergeinversion(left, right):
+    result = list()
+    left.append(sys.maxint)
+    right.append(sys.maxint)
+    i=0
+    j=0
+    inv = 0
+    for k in range(len(left)+len(right)-2):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i+=1
+        else:
+            result.append(right[j])
+            j+=1
+            inv += len(left)-i-1;
+    return result, inv
