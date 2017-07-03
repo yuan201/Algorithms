@@ -1,4 +1,12 @@
 #include <iostream>
+#include "sort.h"
+
+void PrintArray(int* array, int len)
+{
+  for(int i=0; i<len; ++i)
+    std::cout << array[i] << ", ";
+  std::cout << std::endl;
+}
 
 void InsertSort(int* array, int len)
 {
@@ -23,17 +31,9 @@ void SelectionSort(int* array, int len)
 	min = array[j];
 	pos = j;
       }
-      std::swap(array[i], array[pos]);
     }
+    //std::cout << min << ", " << pos << std::endl;
+    std::swap(array[i], array[pos]);
+    //PrintArray(array, len);
   }
-}
-
-int main()
-{
-  int array[10] = {1,5,2,4,3,6,7,0,9,8};
-  //InsertSort(array, 10);
-  SelectionSort(array, 10);
-  for(int i=0; i<10; ++i)
-    std::cout << array[i] << std::endl;
-  return 0;
 }

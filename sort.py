@@ -38,14 +38,4 @@ def merge(array, p, q, r):
             result.append(right[j])
             j+=1
     return result
-            
 
-if __name__ == '__main__':
-    for i in range(10):
-        array = list(range(10))
-        random.shuffle(array)
-        #array = array[::-1]
-        #insertsort(array)
-        selectionsort(array)
-        print(array)
-    
