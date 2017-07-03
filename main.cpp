@@ -4,8 +4,8 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  int array[10] = {4,5,1,-6,3,-5,2,-4,6,0};
-  SelectionSort(array, 10);
-  PrintArray(array, 10);
+  int array[5] = {2,3,8,6,5};
+  int inversions = CountInversion(array, 5);
+  cout << inversions << endl;
   return 0;
 }

@@ -44,6 +44,23 @@ TEST(SortTest, SelectionSort) {
   }
 } 
 
+TEST(SortTest, MergeSort) {
+  for(int i=0; i<10; ++i){
+    int array[LENGTH] = {};
+    GenerateUnsortedArray(array, LENGTH);
+    MergeSort(array, LENGTH);
+    EXPECT_TRUE(IsOrdered(array, LENGTH));
+  }
+}
+
+TEST(SortTest, RecursiveInsertSort) {
+  for(int i=0; i<10; ++i){
+    int array[LENGTH] = {};
+    GenerateUnsortedArray(array, LENGTH);
+    RecursiveInsertSort(array, LENGTH);
+    EXPECT_TRUE(IsOrdered(array, LENGTH));
+  }
+}
 
 int main(int argc, char **argv)
 {

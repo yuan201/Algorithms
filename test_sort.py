@@ -15,13 +15,19 @@ def setup():
 def test_insertsort():
     for i in range(10):
         random.shuffle(array)
-        sort.insertsort(array)
-        assert array == range(LENGTH)
+        sorted = sort.insertsort(array)
+        assert sorted == range(LENGTH)
 
 
 @nose.with_setup(setup)
 def test_selectionsort():
     for i in range(10):
         random.shuffle(array)
-        sort.selectionsort(array)
-        assert array == range(LENGTH)
+        sorted = sort.selectionsort(array)
+        assert sorted == range(LENGTH)
+
+@nose.with_setup(setup)
+def test_mergesort():
+    random.shuffle(array)
+    sorted = sort.mergesort(array)
+    assert sorted == range(LENGTH)
