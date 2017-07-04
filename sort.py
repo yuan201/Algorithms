@@ -1,3 +1,5 @@
+#chpater sort
+
 import random
 import math, sys
 
@@ -29,8 +31,8 @@ def findmin(array):
 
 def merge(left, right):
     result = list()
-    left.append(sys.maxint)
-    right.append(sys.maxint)
+    left.append(sys.maxsize)
+    right.append(sys.maxsize)
     i=0
     j=0
     for k in range(len(left)+len(right)-2):
