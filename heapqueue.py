@@ -121,7 +121,8 @@ class Fifo():
         return self.queue.extract_max().item
 
 
-def build_max_heap(array):
+def build_max_heap_insert(array):
     heap = MaxHeapQueue()
-    for i,item in enumerate(array:
-        heap.insert(i, item)
+    for item in array:
+        heap.insert(item)
+    return heap
