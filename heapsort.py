@@ -1,5 +1,4 @@
-def heapsort(array):
-    pass
+import sys
 
 def max_heapify(heap, i):
     l=left(i)
@@ -67,7 +66,8 @@ def heap_sort(array):
     result = []
     build_max_heap(array)
     for i in range(len(array)):
-        result.insert(0, array.pop(0))
+        result.insert(0, array[0])
+        array[0] = -sys.maxsize
         max_heapify(array, 0)
     return result
 

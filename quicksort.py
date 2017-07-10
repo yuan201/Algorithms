@@ -14,7 +14,7 @@ def partition(array):
     return i+1
 
 def quicksort(array):
-    print(array)
+    #print(array)
     if len(array) <= 1:
         return array
     p = partition(array)

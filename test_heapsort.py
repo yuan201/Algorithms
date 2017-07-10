@@ -10,9 +10,12 @@ def setup():
     global array
     array = list(range(LENGTH))
     random.shuffle(array)
-    
+
+@nose.with_setup(setup)
 def test_heapsort():
     copy = list(array)
-    heapsort.heapsort(array)
+    sorted = heapsort.heap_sort(array)
     copy.sort()
-    assert copy == array
+    #print(copy)
+    #print(array)
+    assert copy == sorted

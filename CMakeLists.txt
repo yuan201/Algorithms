@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 SET(CMAKE_CXX_FLAGS "-std=gnu++11") #Turn on C++11 support
 
-set(FILES_TO_TEST sort.cpp dnc.cpp)
+set(FILES_TO_TEST sort.cpp dnc.cpp heapqueue.cpp)
 set(UTILITIES utility.cpp)
 set(UNIT_TESTS_SORT test_sort.cpp)
 set(UNIT_TESTS_DNC test_dnc.cpp)
