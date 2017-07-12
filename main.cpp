@@ -25,12 +25,10 @@ int main(int argc, char **argv)
        << maxsb.sum
        << endl;
   */
-
-  MaxHeapQueue mhq({4,1,3,2,16,9,10,14,8,7});
+  
+  MaxHeapQueue mhq({16,14,10,8,7,9,3,2,4,1});
   PrintHeap(mhq.Queue());
-  mhq.BuildHeap();
-  vector<int> sorted = mhq.HeapSort();
-  PrintHeap(sorted);
-
+  mhq.Insert(15);
+  PrintHeap(mhq.Queue());
   return 0;
 }

@@ -12,6 +12,8 @@ public:
   vector<int> Queue();
   void BuildHeap();
   vector<int> HeapSort();
+  void IncreaseKey(int i, int key);
+  void Insert(int key);
   
 private:
   vector<int> queue;
@@ -23,3 +25,5 @@ int left(int i);
 int right(int i);
 void PrintHeap(const vector<int>& queue);
 
+struct UnderflowError{};
+struct KeyvalueError{};
