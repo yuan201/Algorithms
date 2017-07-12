@@ -27,9 +27,10 @@ int main(int argc, char **argv)
   */
 
   MaxHeapQueue mhq({4,1,3,2,16,9,10,14,8,7});
-  PrintHeap(mhq);
+  PrintHeap(mhq.Queue());
   mhq.BuildHeap();
-  PrintHeap(mhq);
+  vector<int> sorted = mhq.HeapSort();
+  PrintHeap(sorted);
 
   return 0;
 }

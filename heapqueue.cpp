@@ -4,7 +4,7 @@
 
 int parent(int i)
 {
-  return int((i+1)/2);
+  return int((i+1)/2-1);
 }
 
 int left(int i){
@@ -15,8 +15,11 @@ int right(int i){
   return (i+1)*2;
 }
 
-void PrintHeap(MaxHeapQueue mhq){
-  return;
+void PrintHeap(const vector<int>& queue){
+  int i;
+  for(i=0; i<queue.size()-1; ++i)
+    cout << queue[i] << ",";
+  cout << queue[i] << endl;
 }
 
 MaxHeapQueue::MaxHeapQueue(const vector<int>& q)
@@ -54,4 +57,17 @@ vector<int> MaxHeapQueue::Queue(){
 void MaxHeapQueue::BuildHeap(){
   for(int i=int(queue.size()/2)-1; i>=0; --i)
     Heapify(i);
+}
+
+vector<int> MaxHeapQueue::HeapSort(){
+  vector<int> sorted;
+  int size = queue.size();
+  sorted.resize(size);
+  for(int i=0; i<size; ++i){
+    sorted[size-i-1] = queue[0];
+    queue[0] = queue[queue.size()-1];
+    queue.pop_back();
+    Heapify(0);
+  }
+  return sorted;
 }

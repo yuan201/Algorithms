@@ -6,6 +6,7 @@ set(FILES_TO_TEST sort.cpp dnc.cpp heapqueue.cpp)
 set(UTILITIES utility.cpp)
 set(UNIT_TESTS_SORT test_sort.cpp)
 set(UNIT_TESTS_DNC test_dnc.cpp)
+set(UNIT_TESTS_HEAP test_heapqueue.cpp)
 set(MAIN_FILE main.cpp)
 
 add_subdirectory(googletest)
@@ -22,3 +23,6 @@ target_link_libraries(sort-test gtest gtest_main rt pthread codeToTest utility)
 
 add_executable(dnc-test ${UNIT_TESTS_DNC})
 target_link_libraries(dnc-test gtest gtest_main rt pthread codeToTest utility)
+
+add_executable(heap-test ${UNIT_TESTS_HEAP})
+target_link_libraries(heap-test gtest gtest_main rt pthread codeToTest utility)

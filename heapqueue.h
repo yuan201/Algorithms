@@ -11,6 +11,7 @@ public:
   void Heapify(int i);
   vector<int> Queue();
   void BuildHeap();
+  vector<int> HeapSort();
   
 private:
   vector<int> queue;
@@ -20,5 +21,5 @@ private:
 int parent(int i);
 int left(int i);
 int right(int i);
-void PrintHeap(MaxHeapQueue mhq);
+void PrintHeap(const vector<int>& queue);
 

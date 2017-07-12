@@ -35,10 +35,15 @@ def load_heap(file):
         return [int(i) for i in l]
     
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
+    if len(sys.argv) != 3 and len(sys.argv) != 1:
         usage()
         exit()
-    if sys.argv[1] == "heap":
-        heap = load_heap(sys.argv[2])
-        print_heap(heap)
-          
+    if len(sys.argv) == 3:
+        if sys.argv[1] == "heap":
+            heap = load_heap(sys.argv[2])
+            print_heap(heap)
+    else:
+        for line in sys.stdin:
+            heap = [int(k) for k in line.split(',')]
+            print_heap(heap)
+            print()
