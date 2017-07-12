@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cstring>
 #include "sort.h"
+using namespace std;
 
 void PrintArray(int* array, int len)
 {
     for(int i=0; i<len; ++i)
-	std::cout << array[i] << ", ";
-    std::cout << std::endl;
+	cout << array[i] << ", ";
+    cout << endl;
 }
 
 void InsertSort(int* array, int len)
@@ -32,7 +33,7 @@ void RecursiveInsertSort(int* array, int len)
 	for(int i=0; i<len-1; ++i){
 	    int key = array[len-1];
 	    if(key < array[i]) {
-		std::memmove(array+i+1, array+i, (len-i-1)*sizeof(int));
+		memmove(array+i+1, array+i, (len-i-1)*sizeof(int));
 		array[i] = key;
 	    }
 	}
@@ -52,7 +53,7 @@ void SelectionSort(int* array, int len)
 	    }
 	}
 	//std::cout << min << ", " << pos << std::endl;
-	std::swap(array[i], array[pos]);
+	swap(array[i], array[pos]);
 	//PrintArray(array, len);
     }
 }
@@ -63,8 +64,8 @@ void Merge(int* array, int start, int mid, int end)
     int nr = end-mid+1;
     int* left = new int[nl];
     int* right = new int[nr];
-    std::memcpy(left, array, nl*sizeof(int));
-    std::memcpy(right, array+mid, nr*sizeof(int));
+    memcpy(left, array, nl*sizeof(int));
+    memcpy(right, array+mid, nr*sizeof(int));
     int i,j,cur;
     i=j=cur=0;
     while(i<nl && j<nr){
@@ -75,9 +76,9 @@ void Merge(int* array, int start, int mid, int end)
 	}
     }
     if(i<nl)
-	std::memcpy(array+cur, left+i, (nl-i)*sizeof(int));
+	memcpy(array+cur, left+i, (nl-i)*sizeof(int));
     if(j<nr)
-	std::memcpy(array+cur, right+j, (nr-j)*sizeof(int));
+	memcpy(array+cur, right+j, (nr-j)*sizeof(int));
     delete left;
     delete right;
 }
@@ -115,8 +116,8 @@ int MergeInversion(int* array, int start, int mid, int end)
     int nr = end-mid+1;
     int* left = new int[nl];
     int* right = new int[nr];
-    std::memcpy(left, array, nl*sizeof(int));
-    std::memcpy(right, array+mid, nr*sizeof(int));
+    memcpy(left, array, nl*sizeof(int));
+    memcpy(right, array+mid, nr*sizeof(int));
     int i,j,cur;
     i=j=cur=0;
     while(i<nl && j<nr){
@@ -128,9 +129,9 @@ int MergeInversion(int* array, int start, int mid, int end)
 	}
     }
     if(i<nl)
-	std::memcpy(array+cur, left+i, (nl-i)*sizeof(int));
+	memcpy(array+cur, left+i, (nl-i)*sizeof(int));
     if(j<nr)
-	std::memcpy(array+cur, right+j, (nr-j)*sizeof(int));
+	memcpy(array+cur, right+j, (nr-j)*sizeof(int));
     delete left;
     delete right;
     return inversions;
@@ -138,5 +139,21 @@ int MergeInversion(int* array, int start, int mid, int end)
 
 int Partition(int* array, int p, int r)
 {
-    
+    int x = array[r];
+    int i = p-1;
+    for(int j=p; j<=r-1; ++j){
+	if(array[j] <= x)
+	    swap(array[++i], array[j]);
+    }
+    swap(array[i+1], array[r]);
+    return i+1;
+}
+
+void QuickSort(int* array, int p, int r)
+{
+    if(p<r){
+	int q = Partition(array, p, r);
+	QuickSort(array, p, q-1);
+	QuickSort(array, q+1, r);
+    }
 }

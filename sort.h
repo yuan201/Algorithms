@@ -6,3 +6,5 @@ void MergeSort(int *array, int len);
 void RecursiveInsertSort(int* array, int len);
 int CountInversion(int* array, int len);
 int MergeInversion(int* array, int start, int mid, int end);
+int Partition(int* array, int p, int r);
+void QuickSort(int* array, int p, int r);
