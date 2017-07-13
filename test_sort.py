@@ -3,7 +3,7 @@ import nose
 import sort
 import quicksort as qs
 
-LENGTH = 10
+LENGTH = 1000
 
 array = []
 

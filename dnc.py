@@ -5,7 +5,7 @@ import sys
 def find_max_crossing_subarray(array, mid):
     leftsum = -sys.maxsize
     sum = 0
-    for i in range(mid-1, -1, -1):
+    for i in reversed(range(mid)):
         sum += array[i]
         if sum > leftsum:
             leftsum = sum
